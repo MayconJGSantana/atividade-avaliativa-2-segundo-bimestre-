@@ -1,6 +1,6 @@
 programa
 {
-	inclua biblioteca Matematica
+	inclua biblioteca Matematica
 	inclua biblioteca Texto
 	inclua biblioteca Tipos
 	inclua biblioteca Util
@@ -33,38 +33,57 @@ programa
 		real numero_2
 		real numero_3
 		// caprichos
-		deseja_continuar
+		cadeia deseja_continuar = ""
 		enquanto (verdadeiro) {
 			cabecalho(40, "Exercício 7")
-			pergunte("Entre com o 1° valor")
+			pergunte("Entre com o 1° valor: ")
 			leia(numero_1)
-			pergunte("Entre com o 2° valor")
+			pergunte("Entre com o 2° valor: ")
 			leia(numero_2)
-			pergunte("Entre com o 3° valor")
+			pergunte("Entre com o 3° valor: ")
 			leia(numero_3)
+			escreva("...", "\n")
 			se (numero_1 < numero_2 e numero_3 < numero_2) {
 				se (numero_1 < numero_3) {
-					escreva("A ordem dos válores em ordem descrecente é", numero_2, ", ", numero_3, ", ", numero_1)
+					escreva("A ordem dos válores em ordem descrecente é ", numero_2, ", ", numero_3, ", ", numero_1)
 				}
 				senao {
-					escreva("A ordem dos válores em ordem descrecente é", numero_2, ", ", numero_1, ", ", numero_3)
+					escreva("A ordem dos válores em ordem descrecente é ", numero_2, ", ", numero_1, ", ", numero_3)
 				}
 			}
 			senao se (numero_2 < numero_1 e numero_3 < numero_1) {
 				se (numero_2 < numero_3) {
-					escreva("A ordem dos válores em ordem descrecente é", numero_1, ", ", numero_3, ", ", numero_2)
+					escreva("A ordem dos válores em ordem descrecente é ", numero_1, ", ", numero_3, ", ", numero_2)
 				}
 				senao {
-					escreva("A ordem dos válores em ordem descrecente é", numero_1, ", ", numero_2, ", ", numero_3)
+					escreva("A ordem dos válores em ordem descrecente é ", numero_1, ", ", numero_2, ", ", numero_3)
 				}
 			}
 			senao {
 				se (numero_1 < numero_2) {
-					escreva("A ordem dos válores em ordem descrecente é", numero_3, ", ", numero_2,", ", numero_1)
+					escreva("A ordem dos válores em ordem descrecente é ", numero_3, ", ", numero_2,", ", numero_1)
 				}
 				senao {
-					escreva("A ordem dos válores em ordem descrecente é", numero_3, ", ", numero_1, ", ", numero_2)
+					escreva("A ordem dos válores em ordem descrecente é ", numero_3, ", ", numero_1, ", ", numero_2)
 				}
+			}
+			aguarde(3000)
+			enquanto (verdadeiro) {
+				pergunte("Deseja continuar o programa [sim/nao]? ")
+				leia(deseja_continuar)
+				deseja_continuar  = Texto.caixa_baixa(deseja_continuar)
+				se (deseja_continuar != "nao" e deseja_continuar != "sim" e deseja_continuar != "não") {
+					escreva("Valor inválido, tente novamente!\n")
+				}
+				senao {
+					pare
+				}
+			}
+			se (deseja_continuar == "sim") {
+				limpa()
+			}
+			senao {
+				pare
 			}
 		}
 	}
