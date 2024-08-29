@@ -1,6 +1,6 @@
 programa
 {
-	inclua biblioteca Matematica
+	inclua biblioteca Matematica
 	inclua biblioteca Texto
 	inclua biblioteca Tipos
 	inclua biblioteca Util
@@ -29,17 +29,48 @@ programa
 	
 	funcao inicio()
 	{
-		real velocidade_carro
+		real velocidade_carro = 0.0
+		real multa
+		// caprichos
+		cadeia deseja_continuar = ""
 		enquanto (verdadeiro) {
 			cabecalho(40, "Exercício 11")
 			enquanto (verdadeiro) {
 				pergunte("Qual a velocidade em quilômetros por hora do carro? ")
 				leia(velocidade_carro)
 				se (velocidade_carro < 1) {
-					
+					escreva("Valor inválido, tente novamente!\n")
+				}
+				senao {
+					pare
 				}
 			}
-			
+			escreva("...", "\n")
+			se (velocidade_carro > 80) {
+				multa = (velocidade_carro - 80) * 7
+				escreva("Foste multado pelo preço de ", multa, " reais.")
+			}
+			senao {
+				escreva("Estás dentro da regularidade de trânsito, tenha uma boa viagem!")
+			}
+			aguarde(4000)
+			enquanto (verdadeiro) {
+				pergunte("Deseja continuar o programa [sim/nao]? ")
+				leia(deseja_continuar)
+				deseja_continuar  = Texto.caixa_baixa(deseja_continuar)
+				se (deseja_continuar != "nao" e deseja_continuar != "sim" e deseja_continuar != "não") {
+					escreva("Valor inválido, tente novamente!\n")
+				}
+				senao {
+					pare
+				}
+			}
+			se (deseja_continuar == "sim") {
+				limpa()
+			}
+			senao {
+				pare
+			}
 		}
 	}
 }
