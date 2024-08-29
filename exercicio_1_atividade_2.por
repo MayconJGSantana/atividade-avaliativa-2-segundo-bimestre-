@@ -39,7 +39,7 @@ programa
 				escreva("[", i + 1, "] ", opcoes_menu[i], "\n")
 			}
 			enquanto(verdadeiro) {
-				pergunte("Escolha uma opção do menu")
+				pergunte("Escolha uma opção do menu: ")
 				leia(menu)
 				se (menu < 1 ou menu > 7) {
 					escreva("Valor inválido, tente novamente!")
